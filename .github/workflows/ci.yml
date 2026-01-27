@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run HTML check
+      - name: Force CI failure
         run: |
-          echo "Checking HTML files..."
-          ls
+          echo "Force error"
+          exit 1
