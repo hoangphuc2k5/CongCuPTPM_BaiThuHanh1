@@ -17,4 +17,4 @@ jobs:
       - name: Force CI failure
         run: |
           echo "Force error"
-          exit 1
+          
