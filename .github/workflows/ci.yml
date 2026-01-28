@@ -1,20 +1,24 @@
-name: CI Pipeline
+name: Landing Page CI
 
 on:
-  push:
-    branches: [ develop ]
   pull_request:
-    branches: [ develop ]
+    branches: ["develop", "main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Force CI failure
+      - name: HTML structure check
         run: |
-          echo "Force error"
-          
+          test -f index.html
+          echo "index.html exists"
+
+      - name: CSS file check
+        run: |
+          test -f style.css
+          echo "style.css exists"
+
+      - name: CI success
+        run: echo "Build successful"
